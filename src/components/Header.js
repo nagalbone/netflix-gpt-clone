@@ -34,18 +34,15 @@ const Header = () => {
   },[]);
   
   return (
-    <div className='flex justify-between bg-gradient-to-b from-black'>
-      
+    <div className='flex justify-between bg-gradient-to-b from-black absolute w-full'>
       <div >
-      <img className="w-44 ml-5 absolute" src={LOGO} alt='logo' />
+      <img className="w-44 ml-5" src={LOGO} alt='logo' />
       </div>
-        
-    <div>
     {user && 
-    <div className='flex'><img src={USER_LOGO} alt='logo icon' className='m-2 w-8 h-8'/>
-    <button className="m-2 px-2 text-white font-semibold bg-red-600 rounded-lg" onClick={signOutUser}>Sign Out</button></div> }
-    </div>
-
+    <div className='flex h-12'>
+      <img src={USER_LOGO} alt='logo icon' className='m-2 w-8 h-8'/>
+      <button className="m-2  py-0 px-2 text-white font-semibold bg-red-600 rounded-lg" onClick={signOutUser}>Sign Out</button>
+    </div> }
     </div>
   )
 }
