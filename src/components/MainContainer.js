@@ -18,7 +18,7 @@ const MainContainer = () => {
       return rand;
       }
 
-    const mainMovie = movies[genrateRandomIndex(0,movies.length)];
+    const mainMovie = movies[genrateRandomIndex(0,movies.length - 1)];
     const {original_title,overview,id} = mainMovie;
 
     
