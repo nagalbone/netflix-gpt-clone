@@ -46,17 +46,17 @@ const Header = () => {
   }
   
   return (
-    <div className='flex justify-between bg-gradient-to-b from-black absolute w-full'>
+    <div className='flex md:justify-between md:flex-row flex-col bg-gradient-to-b from-black absolute w-full'>
       <div >
-      <img className="w-44 ml-5" src={LOGO} alt='logo' />
+      <img className="w-32 md:w-44 md:ml-5 mx-auto" src={LOGO} alt='logo' />
       </div>
     {user && 
-    <div className='flex h-12'>
+    <div className='flex h-12 justify-between'>
       {showGptSearch && <select className='px-2 m-2 bg-gray-700 text-white' onChange={handleChangeLang}>
         {SUPPORTED_LANG.map((lang)=> <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
       </select>}
       <button className='px-4 m-2 bg-purple-600 text-white rounded-lg' onClick={toggleGptComponent}>GPT Search</button>
-      <img src={USER_LOGO} alt='logo icon' className='m-2 w-8 h-8 rounded-sm'/>
+      <img src={USER_LOGO} alt='logo icon' className='m-2 w-8 h-8 rounded-sm hidden md:block'/>
       <button className="m-2  py-0 px-2 text-white font-semibold bg-red-600 rounded-lg" onClick={signOutUser}>Sign Out</button>
     </div> }
     </div>

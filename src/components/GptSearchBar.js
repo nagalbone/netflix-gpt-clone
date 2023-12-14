@@ -29,11 +29,10 @@ const GptSearchBar = () => {
       setLoading(false);
     }
   return (
-    <div className='pt-[10%] flex justify-center'>
-
-        <form className='grid grid-cols-12 bg-black w-1/2 p-2 bg-opacity-70' onSubmit={(e)=> e.preventDefault()}>
+    <div className='pt-[35%] md:pt-[10%] flex justify-center'>
+        <form className='grid grid-cols-12 bg-black md:w-1/2 w-full p-2 bg-opacity-70' onSubmit={(e)=> e.preventDefault()}>
             <input type='text' className="col-span-9 p-3 m-2" placeholder={lang[langKey].searchPlaceholder} ref={searchText} required/>
-            <button className='col-span-3 bg-red-600 p-3 m-2 px-4 rounded-lg text-white' disabled={loading} onClick={handleGptSearch}>{loading ? "Loading..." : lang[langKey].searchButton}</button>
+            <button className='col-span-3 bg-red-600 p-3 m-2 px-4 rounded-lg text-white' disabled={loading} onClick={handleGptSearch}>{loading ? "Loading" : lang[langKey].searchButton}</button>
         </form>
     </div>
   )

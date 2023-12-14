@@ -48,7 +48,7 @@ const Login = () => {
   return (
     <div className='relative'>
         <Header/>
-        <div className='bg-black absolute w-[400px] my-32 p-14 m-auto left-0 right-0 text-white bg-opacity-80'>
+        <div className='bg-black absolute w-[400px] my-32 p-9 md:p-10 m-auto left-0 right-0 text-white bg-opacity-80'>
             <form onSubmit={(e)=> e.preventDefault()}>
                 <h1 className='font-semibold mb-4 text-3xl'>{isSignIn ? "Sign In" : "Sign Up"}</h1>
                 <p className='text-red-600 text-xl'>{errorMessage}</p>
@@ -61,7 +61,7 @@ const Login = () => {
             {isSignIn ? "New to Netflix? Sign Up Now" : "Already User? Sign In"}
             </p>
         </div>
-        <img className="bg-opacity-80 w-screen h-screen" src={BG_IMG} alt='backbrond ing' />
+        <img className="bg-opacity-80 w-screen h-screen object-cover" src={BG_IMG} alt='backbrond ing' />
     </div>
   )
 }
