@@ -3,6 +3,7 @@ import Header from './Header';
 import { validateForm } from '../utils/validate';
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "firebase/auth";
 import {auth} from "../utils/firebase";
+import { BG_IMG } from '../utils/constants';
 
 const Login = () => {
   const [isSignIn,setIsSignIn] = useState(true);
@@ -16,6 +17,7 @@ const Login = () => {
     setErrorMessage(isValid);
 
     if(isValid) return;
+    setErrorMessage("Loading..");
 
     if(isSignIn)
     {
@@ -40,7 +42,6 @@ const Login = () => {
         const errorMessage = error.message;
         setErrorMessage("something went wrong..");
       });
-
     }
   }
 
@@ -60,7 +61,7 @@ const Login = () => {
             {isSignIn ? "New to Netflix? Sign Up Now" : "Already User? Sign In"}
             </p>
         </div>
-        <img className="bg-opacity-80" src='https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_large.jpg' alt='backbrond ing' />
+        <img className="bg-opacity-80 w-screen h-screen" src={BG_IMG} alt='backbrond ing' />
     </div>
   )
 }

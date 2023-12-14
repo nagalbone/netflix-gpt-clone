@@ -6,9 +6,12 @@ import { addUser, removeUser } from '../slices/loginSlice';
 import { useNavigate } from 'react-router-dom';
 import { LOGO, USER_LOGO,SUPPORTED_LANG } from '../utils/constants';
 import { toggleGptSearch } from '../slices/gptSearchSlice';
+import { changeLanguage } from '../slices/configSlice';
 
 const Header = () => {
   const user = useSelector(store => store.login);
+  const lang = useSelector(store=> store.config.langauge);
+  const showGptSearch = useSelector(store=>store.gpt.showGptSearch);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -36,6 +39,11 @@ const Header = () => {
 
     return ()=> unsubscribe();
   },[]);
+
+
+  const handleChangeLang = (e)=>{
+    dispatch(changeLanguage(e.target.value))
+  }
   
   return (
     <div className='flex justify-between bg-gradient-to-b from-black absolute w-full'>
@@ -44,12 +52,11 @@ const Header = () => {
       </div>
     {user && 
     <div className='flex h-12'>
-      <select className='px-2 m-2 bg-gray-700 text-white'>
+      {showGptSearch && <select className='px-2 m-2 bg-gray-700 text-white' onChange={handleChangeLang}>
         {SUPPORTED_LANG.map((lang)=> <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
-        
-      </select>
+      </select>}
       <button className='px-4 m-2 bg-purple-600 text-white rounded-lg' onClick={toggleGptComponent}>GPT Search</button>
-      <img src={USER_LOGO} alt='logo icon' className='m-2 w-8 h-8'/>
+      <img src={USER_LOGO} alt='logo icon' className='m-2 w-8 h-8 rounded-sm'/>
       <button className="m-2  py-0 px-2 text-white font-semibold bg-red-600 rounded-lg" onClick={signOutUser}>Sign Out</button>
     </div> }
     </div>
